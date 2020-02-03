@@ -1,0 +1,12 @@
+.pytest_cache
+.idea
+__pycache__
+Screenshots
+geckodriver.log
+*.png
+
+#ignore dla build_window
+*DS_STORE
+history.yml
+.env
+log/
