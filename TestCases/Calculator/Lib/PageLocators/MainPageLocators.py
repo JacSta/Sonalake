@@ -9,6 +9,7 @@ class MainPageLocators(object):
     INPUT_main = "//input[@id='input']"
 
     ELEMENT_history = "//button[contains(text(),'History')]"
+    BUTTON_history_list_down = "//span[contains(@class, 'glyphicon-chevron-down')]"
 
     RESULT_element = "//div[@id='histframe']/ul/li[1]/p[@class='r']"
     CALCULATION_element = "//div[@id='histframe']/ul/li/p[@class='l']"

@@ -2,6 +2,7 @@ from TestCases.Calculator.Lib import PageObjects as Page
 from ..Lib.CalculatorTestSetup import CalculatorTestSetup
 from ..TestData import test_data_calculate as Data
 
+
 class TestCalculate(CalculatorTestSetup):
 
     __test__ = True
@@ -15,20 +16,21 @@ class TestCalculate(CalculatorTestSetup):
         """
         cookies = Page.CookiesObject(self.driver)
         cookies.close_cookies_info()
-        main = Page.MainPageObject(self.driver)
-        Calc = Data.calculations()
-        Expected_res = Data.expected_results()
-        Expected_calc = Data.expected_calc()
 
-        main.calculate(Calc["first_calc"])
-        main.assert_calc_result(Expected_res["first_calc"])
-        main.clear_display()
+        main = Page.MainPageObject(self.driver)
+        expected_calc = Data.expected_calc()
+
+        self._calculation("first_calc")
         main.select_deg_rad("Rad")
-        main.calculate(Calc["second_calc"])
-        main.assert_calc_result(Expected_res["second_calc"])
-        main.clear_display()
+        self._calculation("second_calc")
         main.select_deg_rad("Deg")
-        main.calculate(Calc["third_calc"])
-        main.assert_calc_result(Expected_res["third_calc"])
+        self._calculation("third_calc")
+        main.assert_history_of_caclulations(expected_calc)
+
+    def _calculation(self, number_calc):
+        calc = Data.calculations()
+        expected_res = Data.expected_results()
+        main = Page.MainPageObject(self.driver)
+        main.calculate(calc[number_calc])
+        main.assert_calc_result(expected_res[number_calc])
         main.clear_display()
-        main.assert_history_of_caclulations(Expected_calc)

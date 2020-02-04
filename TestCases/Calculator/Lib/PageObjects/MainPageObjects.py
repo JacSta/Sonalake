@@ -12,6 +12,7 @@ class MainPageObject(Actions):
     def calculate(self, sequence):
         for item in sequence:
             button = self.wait_for.element_visible(self.locator.BUTTON_keypad.format(item))
+            self.wait_for.element_to_be_clickable(button)
             button.click()
         self.wait_for.element_invisible(self.locator.ELEMENT_history)
 
@@ -33,6 +34,8 @@ class MainPageObject(Actions):
         self.element_attribute.attribute_has_value(result_locator, "title", expected)
 
     def assert_history_of_caclulations(self, expected):
+        history= self.wait_for.element_visible(self.locator.BUTTON_history_list_down)
+        history.click()
         calc_list = self.driver.find_elements_by_xpath(self.locator.CALCULATION_element)
         calc_value_list = []
         for item in calc_list:
