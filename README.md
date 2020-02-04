@@ -15,6 +15,9 @@ Contains:
 * class checking that **Driver** has all required paramters set.
 * class **[`Driver`](Lib/DriverSession/Driver.py)**, that returns appropriate session of WebDriver based on given parameters.
 
+### TestData
+Contains test data files for every test.
+
 ### Installation
 
 * Tests were written and tested on Linux system

@@ -9,10 +9,16 @@ class TestCalculate(CalculatorTestSetup):
 
     def test_calculate(self):
         """
-            1. Opens home page
-            2. Types given password into Password input element
-            3. Clicks 'Continue' button
-            4. Checks if Main Page of shared folder is visible
+            1. Opens start page set in settings.py
+            2. Performs calculation with first data set
+            3. Asserts result
+            4. Changes radio button from Degree to Radian
+            5. Performs calculation with second data set
+            6. Asserts result
+            7. Changes radio button from Radian to Degree
+            6. Performs calculation with third data set
+            7. Asserts result
+            8. Checks if 'History' drop down list contains proper calculations
         """
         cookies = Page.CookiesObject(self.driver)
         cookies.close_cookies_info()
