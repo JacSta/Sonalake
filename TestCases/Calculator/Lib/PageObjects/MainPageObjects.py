@@ -17,12 +17,12 @@ class MainPageObject(Actions):
         self.wait_for.element_invisible(self.locator.ELEMENT_history)
 
     def select_deg_rad(self, *args):
-        Rad = self.wait_for.element_visible(self.locator.BUTTON_rad)
-        Deg = self.wait_for.element_visible(self.locator.BUTTON_deg)
+        rad = self.wait_for.element_visible(self.locator.BUTTON_rad)
+        deg = self.wait_for.element_visible(self.locator.BUTTON_deg)
         if "Rad" in args:
-            Rad.click()
+            rad.click()
         elif "Deg" in args:
-            Deg.click()
+            deg.click()
 
     def clear_display(self):
         clear = self.wait_for.element_visible(self.locator.BUTTON_keypad.format('Clear'))
